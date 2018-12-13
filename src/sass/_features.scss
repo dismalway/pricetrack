@@ -1,0 +1,13 @@
+.features {
+	background-color: $gray;
+
+	&__item {
+		.fas {
+			color: $primary;
+		}
+	}
+
+	&__title {
+		@include line;
+	}
+}

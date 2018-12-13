@@ -1,0 +1,30 @@
+.footer {
+	padding-top: 2rem;
+	padding-bottom: 1rem;
+	
+	background-color: $gray;
+
+	&__brand {
+		@include transition-all;
+		
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: lighten($black, 40%);
+		
+		&:hover {
+			text-decoration: none;
+			color: rgba($black, .9);
+		}
+	}
+
+	.fab {
+		@include transition-all;
+		color: lighten($black, 30%);
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: $primary;
+		} 
+	}
+}

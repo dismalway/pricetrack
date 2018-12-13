@@ -1,0 +1,33 @@
+.header {
+	padding-top: 10rem;
+	padding-bottom: calc(10rem - 56px);
+
+	background-image: url('../img/header.jpg');
+	background-position: center center;
+	background-size: cover;
+
+	@media (min-width: 992px) {
+		display: flex;
+		align-items: center;
+		height: 100vh;
+		min-height: 650px;
+	}
+
+	&__title {
+		@include line;
+		font-size: 2rem;
+
+		@media (min-width: 992px) {
+			font-size: 3.2rem;
+		}
+
+		@media (min-width: 1200px) {
+			font-size: 3.5rem;
+		}
+	}
+
+	&__text {
+		font-size: 1.2rem;
+		color: $black;
+	}
+}

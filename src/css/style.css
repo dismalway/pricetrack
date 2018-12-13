@@ -1,0 +1,162 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-style: normal;
+  src: url("../fonts/opensans-light.woff2") format("woff2"), url("../fonts/opensans-light.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/opensans-regular.woff2") format("woff2"), url("../fonts/opensans-regular.woff") format("woff"); }
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-style: normal;
+  src: url("../fonts/opensans-bold.woff2") format("woff2"), url("../fonts/opensans-bold.woff") format("woff"); }
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-weight: 400; }
+
+body {
+  font-family: "Open Sans", Arial, sans-serif; }
+
+.py-section {
+  padding: 8rem 0; }
+
+.btn {
+  transition: all 0.3s;
+  padding: 1rem 4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 100px; }
+
+.btn-primary {
+  background-color: #28a745; }
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+    color: #ffffff;
+    background-color: #23923d !important; }
+
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.2s; }
+  @media (min-width: 992px) {
+    .navbar {
+      background-color: transparent;
+      border-bottom: transparent; } }
+  .navbar .navbar-brand {
+    transition: all 0.3s;
+    font-weight: 700;
+    color: #666666; }
+  @media (min-width: 992px) {
+    .navbar.navbar-shrink {
+      background-color: #ffffff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+      .navbar.navbar-shrink .navbar-brand {
+        color: #28a745; } }
+
+.navbar-nav > .nav-item > .nav-link {
+  transition: all 0.3s;
+  color: #333333; }
+  .navbar-nav > .nav-item > .nav-link:hover, .navbar-nav > .nav-item > .nav-link:focus {
+    color: #28a745; }
+  .navbar-nav > .nav-item > .nav-link.active {
+    color: #28a745; }
+  @media (min-width: 992px) {
+    .navbar-nav > .nav-item > .nav-link {
+      padding: 0 1rem; } }
+
+.header {
+  padding-top: 10rem;
+  padding-bottom: calc(10rem - 56px);
+  background-image: url("../img/header.jpg");
+  background-position: center center;
+  background-size: cover; }
+  @media (min-width: 992px) {
+    .header {
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      min-height: 650px; } }
+  .header__title {
+    font-size: 2rem; }
+    .header__title::after {
+      content: "";
+      display: block;
+      max-width: 50px;
+      height: 3px;
+      margin: 1.5rem auto;
+      background-color: #28a745; }
+    @media (min-width: 992px) {
+      .header__title {
+        font-size: 3.2rem; } }
+    @media (min-width: 1200px) {
+      .header__title {
+        font-size: 3.5rem; } }
+  .header__text {
+    font-size: 1.2rem;
+    color: #000000; }
+
+.about__title::after {
+  content: "";
+  display: block;
+  max-width: 50px;
+  height: 3px;
+  margin: 1.5rem auto;
+  background-color: #28a745; }
+
+.features {
+  background-color: #fafafa; }
+  .features__item .fas {
+    color: #28a745; }
+  .features__title::after {
+    content: "";
+    display: block;
+    max-width: 50px;
+    height: 3px;
+    margin: 1.5rem auto;
+    background-color: #28a745; }
+
+.contact__title::after {
+  content: "";
+  display: block;
+  max-width: 50px;
+  height: 3px;
+  margin: 1.5rem auto;
+  background-color: #28a745; }
+
+.contact__link {
+  color: #28a745; }
+  .contact__link:hover, .contact__link:focus, .contact__link:active {
+    color: #28a745; }
+
+.contact .far {
+  color: #4d4d4d; }
+
+.footer {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  background-color: #fafafa; }
+  .footer__brand {
+    transition: all 0.3s;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #666666; }
+    .footer__brand:hover {
+      text-decoration: none;
+      color: rgba(0, 0, 0, 0.9); }
+  .footer .fab {
+    transition: all 0.3s;
+    color: #4d4d4d; }
+    .footer .fab:hover, .footer .fab:focus, .footer .fab:active {
+      color: #28a745; }
+
+.social {
+  max-width: 180px; }

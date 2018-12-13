@@ -1,0 +1,48 @@
+.navbar {
+  background-color: $white;
+	border-bottom: 1px solid rgba($black, .1);
+
+  transition: all 0.2s;
+
+  @media (min-width: 992px) {
+		background-color: transparent;
+		border-bottom: transparent;
+	}
+
+  .navbar-brand {
+  	@include transition-all;
+
+  	font-weight: 700;
+  	color: lighten($black, 40%);
+  }
+
+	&.navbar-shrink {
+		@media (min-width: 992px) { 
+			background-color: $white;
+			border-bottom: 1px solid rgba($black, .1);
+
+			.navbar-brand {
+				color: $primary;
+			}
+		}
+	}
+}
+
+.navbar-nav > .nav-item > .nav-link {
+	@include transition-all;
+	
+	color: lighten($black, 20%);
+
+	&:hover,
+	&:focus {
+		color: $primary;
+	}
+
+	&.active {
+		color: $primary;
+	}
+
+	@media (min-width: 992px) {
+		padding: 0 1rem;
+	}
+}

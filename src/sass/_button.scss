@@ -1,0 +1,22 @@
+.btn {
+	@include transition-all;
+
+	padding: 1rem 4rem;
+
+	font-weight: 700;
+	text-transform: uppercase;
+
+	border: none;
+	border-radius: 100px;
+}
+
+.btn-primary {
+	background-color: $primary;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $white;
+		background-color: darken($primary, 5%) !important;
+	}
+}

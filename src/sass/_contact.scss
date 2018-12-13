@@ -1,0 +1,20 @@
+.contact {
+
+	&__title {
+		@include line;
+	}
+
+	&__link {
+		color: $primary;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: $primary;
+		}
+	}
+
+	.far {
+		color: lighten($black, 30%);
+	}
+}
