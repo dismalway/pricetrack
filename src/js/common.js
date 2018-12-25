@@ -15,12 +15,14 @@ function navbarCollapse() {
 navbarCollapse();
 window.onscroll = navbarCollapse;
 
-$(document).ready(function(){
-  $("#mainNav").on("click","a", function (event) {
-      event.preventDefault();
-      var id = $(this).attr('href'),
-          top = $(id).offset().top;
-      $('body,html').animate({scrollTop: top}, 1000);
+$(document).ready(function() {
+  //$('a[href^="#"]').on('click', function(event) {
+  $('[href*="#"]:not([href="#"]').on('click', function(event) {
+    event.preventDefault();
+    var id = $(this).attr("href"),
+        top = $(id).offset().top;
+     
+    $('html, body').animate({scrollTop: top}, 1000);
   });
 });
 

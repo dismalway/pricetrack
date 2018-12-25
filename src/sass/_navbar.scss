@@ -1,4 +1,6 @@
 .navbar {
+  z-index: 1;
+
   background-color: $white;
 	border-bottom: 1px solid rgba($black, .1);
 
@@ -24,6 +26,10 @@
 			.navbar-brand {
 				color: $primary;
 			}
+
+			.nav-item-signin > .dropdown-menu {
+				background-color:  $white;
+			}
 		}
 	}
 }
@@ -34,15 +40,20 @@
 	color: lighten($black, 20%);
 
 	&:hover,
-	&:focus {
-		color: $primary;
-	}
-
 	&.active {
 		color: $primary;
 	}
 
 	@media (min-width: 992px) {
 		padding: 0 1rem;
+	}
+}
+
+.nav-item-signin > .dropdown-menu {
+	border: none;
+
+	@media (min-width: 992px) {
+		background-color: rgba($white, .4);
+		border-bottom: transparent;
 	}
 }

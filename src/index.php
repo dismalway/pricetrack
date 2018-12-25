@@ -1,3 +1,7 @@
+<?php 
+  session_start();
+  require_once("functions.php");
+?>
 <!DOCTYPE html>
 <html lang="ru">
 	<head>
@@ -29,8 +33,8 @@
 						<li class="nav-item">
 							<a class="nav-link" href="#contact">Контакты</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#login">Вход</a>
+						<li class="nav-item nav-item-signin dropdown">
+							<?php echo createSigninMenu(); ?>
 						</li>
 					</ul>
 	      </div>	
@@ -162,8 +166,85 @@
 	  		</div>
 	  	</div>
 	  </footer>
-	  <script src="js/jquery.min.js"></script>
+    
+	  <section class="modal-block">
+	  	<div class="modal-overlay">
+	  		<div class="modal-signin">
+	  			<div class="modal-signin__button-close">&times;</div>
+		  		<div class="container-fluid pl-0 pr-0">
+		  			<div class="row no-gutters">
+		  				<div class="col">
+		  					<div class="modal-switch">
+					  			<a class="modal-switch__login" href="">Вход</a>
+					  			<a class="modal-switch__signup" href="">Регистрация</a>
+					  		</div>
+		  				</div>
+		  			</div>
+		  			<div class="row">
+		  				<div class="col col-login">
+		  					<div class="modal-login">
+					  			<form class="modal-login__form" method="POST">
+					  				<div class="container">
+					  					<div class="row">
+					  						<div class="col">
+					  							<div class="modal-group modal-login__group-email">
+					  								<label class="modal-label">E-mail</label>
+					  								<input class="modal-input" type="email" name="login-email" id="login-email">
+					  							</div>
+					  							<div class="modal-group modal-login__group-password">
+					  								<label class="modal-label" for="login-password">Пароль</label>
+					  								<input class="modal-input" type="password" name="login-password" id="login-password">
+					  							</div>
+					  							<div class="modal-group">
+					  								<button class="btn btn-form modal-login__btn-submit" type="submit" name="submit">Войти</button>
+					  							</div>
+					  						</div>
+					  					</div>
+					  				</div>
+					  			</form>
+					  		</div>
+		  				</div>
+		  				<div class="col col-signup">
+		  					<div class="modal-signup">
+					  			<form class="modal-signup__form" method="POST">
+					  				<div class="container">
+					  					<div class="row">
+					  						<div class="col">
+					  							<div class="modal-group modal-signup__group-email">
+					  								<label class="modal-label" for="signup-email">E-mail</label>
+					  								<input class="modal-input" type="email" name="signup-email" id="signup-email">
+					  							</div>
+					  							<div class="modal-group modal-signup__group-password">
+					  								<label class="modal-label" for="signup-password">Пароль</label>
+					  								<input class="modal-input" type="password" name="signup-password" id="signup-password">
+					  							</div>
+					  							<div class="modal-group modal-signup__group-reppassword">
+					  								<label class="modal-label" for="signup-reppassword">Повторите пароль</label>
+					  								<input class="modal-input" type="password" name="signup-reppassword" id="signup-reppassword">
+					  							</div>
+					  							<div class="modal-group modal-signup__group-agreement">
+					  								<input class="modal-signup__checkbox-agreement invisible" type="checkbox" name="signup-agreement" id="signup-agreement">
+					  								<label class="modal-label modal-signup__label-agreement" for="signup-agreement">Я принимаю условия 
+															<a class="modal-signup__link-agreement" href="#">соглашения</a>
+					  								</label>
+					  							</div>
+					  							<div class="modal-group">
+					  								<button class="btn btn-form modal-signup__btn-submit" type="submit" name="signup-submit">Зарегистрироваться</button>
+					  							</div>
+					  						</div>
+					  					</div>
+					  				</div>
+					  			</form>
+					  		</div>
+		  				</div>
+		  			</div>
+		  		</div>
+	  		</div>
+	  	</div>
+	  </section>	 
+	 	<script src="js/jquery.min.js"></script>
 	  <script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/common.min.js"></script>
+		<script src="js/modal.min.js"></script>
 	</body>
 </html>
