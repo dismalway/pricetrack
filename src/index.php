@@ -18,7 +18,7 @@
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
 			<div class="container">
-				<a class="navbar-brand" href="#">PriceTrack</a>
+				<a class="navbar-brand" href="/">PriceTrack</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 	        <span class="navbar-toggler-icon"></span>
 	      </button>
@@ -34,7 +34,11 @@
 							<a class="nav-link" href="#contact">Контакты</a>
 						</li>
 						<li class="nav-item nav-item-signin dropdown">
-							<?php echo createSigninMenu(); ?>
+							<?php echo showLogin(); ?>
+							<div class="dropdown-menu">
+					      <a class="dropdown-item nav-link-personal" href="/personal/">Личный кабинет</a>
+								<a class="dropdown-item nav-link-logout" href="#">Выход</a>
+					    </div>
 						</li>
 					</ul>
 	      </div>	
@@ -118,17 +122,9 @@
 						<div class="contact__content text-center">
 							<h2 class="contact__title">Остались вопросы?</h2>
 							<p class="contact__text mb-4">
-								Отправьте нам письмо на указанный ниже адрес и мы свяжемся с вами как можно скорее!
+								Отправьте нам письмо на адрес: <a class="contact__link" href="mailto:your-email@your-domain.com">pricetrack37@gmail.com</a> и мы свяжемся с вами как можно скорее!
 							</p>
 						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-4 text-center mx-auto">
-						<i class="far fa-envelope fa-3x mb-3 sr-contact-2"></i>
-						<p class="contact__email">
-							<a class="contact__link" href="mailto:your-email@your-domain.com">pricetrack37@gmail.com</a>
-						</p>
 					</div>
 				</div>
 			</div>
@@ -245,6 +241,7 @@
 	 	<script src="js/jquery.min.js"></script>
 	  <script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/common.min.js"></script>
+		<script src="js/menu.min.js"></script>
 		<script src="js/modal.min.js"></script>
 	</body>
 </html>

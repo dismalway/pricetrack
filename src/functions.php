@@ -25,14 +25,13 @@
 		return mb_substr($email, 0, strpos($email, '@'));
 	}
 
-	function createSigninMenu() {
-		if (isset($_SESSION['email'])) {
-			$str = 
-			'<a class="nav-link nav-link-signin authorized dropdown-toggle" data-toggle="dropdown" href="#">'.createLogin($_SESSION['email']).'</a>
-		  <div class="dropdown-menu">
-	      <a class="dropdown-item nav-link-personal" href="#">Личный кабинет</a>
-				<a class="dropdown-item nav-link-logout" href="#">Выход</a>
-	    </div>';
+	function checkSession() {
+		return isset($_SESSION['email']);
+	}
+
+	function showLogin() {
+		if (checkSession()) {
+			$str = '<a class="nav-link nav-link-signin authorized dropdown-toggle" data-toggle="dropdown" href="#">'.createLogin($_SESSION['email']).'</a>';
 		} else {
     	$str = '<a class="nav-link nav-link-signin" href="#">Войти</a>';
 		}

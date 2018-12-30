@@ -31,7 +31,9 @@
 
 				if (md5(md5($password) . $row[0]['salt']) == $row[0]['password']) {
 					$_SESSION['email'] = $email;
-					echo json_encode(['result' => 1, 'email' => $email]); 
+					$login = createLogin($email);
+
+					echo json_encode(['result' => 1, 'email' => $email, 'login' => $login]); 
 				} else {
 					$err['err_wrong_password'] = 'Неверный пароль';
 					echo json_encode($err);

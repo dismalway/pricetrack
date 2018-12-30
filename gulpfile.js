@@ -20,7 +20,7 @@ gulp.task('html', function() {
 
 // PHP
 gulp.task('php', function() {
-  return gulp.src('src/*.php')
+  return gulp.src('src/**/*.php')
   .pipe(gulp.dest('build'));
 });
 
@@ -107,7 +107,7 @@ gulp.task('server', function() {
 	});
 
   gulp.watch('src/*.html', ['html']).on('change', browserSync.reload);
-	gulp.watch('src/*.php', ['php']).on('change', browserSync.reload);
+	gulp.watch('src/**/*.php', ['php']).on('change', browserSync.reload);
 	gulp.watch('src/sass/**/*.scss', ['css']).on('change', browserSync.reload);
 	gulp.watch('src/js/**/*.js', ['js']).on('change', browserSync.reload);
 });

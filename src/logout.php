@@ -4,7 +4,7 @@
   if (!empty($_SESSION["email"])) {
     unset($_SESSION["email"]);
   }
-	echo json_encode(['result' => 1]);      
+	echo json_encode(['result' => 1]); 
 ?>
 
 	

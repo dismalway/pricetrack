@@ -53,8 +53,9 @@
         	$stmt->execute(['email' => $email, 'password' => $saltPassword, 'salt' => $salt]);
 					
 					$_SESSION['email'] = $email;
+          $login = createLogin($email);
 
-					echo json_encode(['result' => 1, 'email' => $email]); 
+					echo json_encode(['result' => 1, 'email' => $email, 'login' => $login]); 
 				}
 	    }
 	  }

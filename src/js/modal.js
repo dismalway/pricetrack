@@ -1,14 +1,8 @@
 var overlay = document.querySelector('.modal-overlay');
 
 var modalSignin = document.querySelector(".modal-signin");
-var closeSignin = document.querySelector('.modal-signin__button-close');
 
-var linkLogout = document.querySelector('.nav-link-logout');
-
-var modalLogin = document.querySelector(".modal-login");
 var formLogin = document.querySelector(".modal-login__form");
-
-var modalSignup = document.querySelector(".modal-signup");
 var formSignup = document.querySelector(".modal-signup__form");
 
 var switchSignup = document.querySelector(".modal-switch__signup");
@@ -20,10 +14,23 @@ var colSignup = document.querySelector(".modal-signin .col-signup");
 var btnSubmitLogin = document.querySelector(".modal-login__btn-submit");
 var btnSubmitSignup = document.querySelector(".modal-signup__btn-submit");
 
-showSigninForm();
-closeSigninForm();
-closeSigninFormKeyDown();
-switchSigninForm();
+
+window.addEventListener('load', function() {
+	btnSubmitSignup.addEventListener('click', function(event) {
+		event.preventDefault();
+		postSignupData();
+	});
+
+	btnSubmitLogin.addEventListener('click', function(event) {
+		event.preventDefault();
+		postLoginData();
+	});
+
+	showSigninForm();
+	closeSigninForm();
+	closeSigninFormKeyDown();
+	switchSigninForm();
+})
 
 function showSigninForm() {
 	var linkSignin = document.querySelector('.nav-link-signin');
@@ -43,6 +50,7 @@ function showSigninForm() {
 }
 
 function closeSigninForm() {
+	var closeSignin = document.querySelector('.modal-signin__button-close');
 	closeSignin.addEventListener('click', function(event) {
 		event.preventDefault();
 		if (modalSignin.classList.contains('modal-show')) {
@@ -112,29 +120,6 @@ function removeErrorElements() {
 	}
 }
 
-function createLogin(email) {
-  return email.substring(0, email.indexOf("@"));
-}
-
-window.onload = function() {
-	btnSubmitSignup.addEventListener('click', function(event) {
-		event.preventDefault();
-		postSignupData();
-	});
-
-	btnSubmitLogin.addEventListener('click', function(event) {
-		event.preventDefault();
-		postLoginData();
-	});
-	
-	if (linkLogout != null) {
-		linkLogout.addEventListener('click', function(event) {
-		  event.preventDefault();
-		  logoutAccount();
-		});
-	}
-}
-
 function postSignupData() {
 	var xhr = new XMLHttpRequest();
 	var signupEmail = document.querySelector('#signup-email'),
@@ -155,7 +140,7 @@ function postSignupData() {
 				modalSignin.classList.remove('modal-show');
 				overlay.style.display = 'none';
 
-				showSigninMenu(response['email']);
+				showSigninMenu(response['login']);
 			} else {
 				var arrError = JSON.parse(xhr.responseText);
 				
@@ -214,7 +199,7 @@ function postLoginData() {
 				modalSignin.classList.remove('modal-show');
 				overlay.style.display = 'none';
 
-				showSigninMenu(response['email']);
+				showSigninMenu(response['login']);
 			} else {
 				var arrError = JSON.parse(xhr.responseText);
 
@@ -248,45 +233,3 @@ function postLoginData() {
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhr.send(params);
 }
-
-function logoutAccount() {
-	var xhr = new XMLHttpRequest();
-
-	xhr.onreadystatechange = function() {
-		if (xhr.readyState == 4) {
-			var response = JSON.parse(xhr.responseText);
-			if (response['result'] == 1) {
-				hideSigninMenu();
-			}
-	  }
-  }
-  xhr.open('POST', 'logout.php', true);
-	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-	xhr.send();
-}
-
-function showSigninMenu(email) {
-	var itemSignin = document.querySelector('.nav-item-signin');
-
-	itemSignin.innerHTML = 
-	'<a class="nav-link nav-link-signin authorized dropdown-toggle" data-toggle="dropdown" href="#">' + 
-	createLogin(email) + '</a>' +
-  '<div class="dropdown-menu">' +
-    '<a class="dropdown-item nav-link-personal" href="#">Личный кабинет</a>' +
-		'<a class="dropdown-item nav-link-logout" href="#">Выход</a>' + 
-  '</div>';
-  
-  var linkLogout = document.querySelector('.nav-link-logout');
-  linkLogout.addEventListener('click', function(event) {
-    event.preventDefault();
-	  logoutAccount();
-	});
-}
-
-function hideSigninMenu() {
-	var itemSignin = document.querySelector('.nav-item-signin');
-	itemSignin.innerHTML = '<a class="nav-link nav-link-signin" href="#">Войти</a>';
-	showSigninForm();
-}
-
-
